@@ -1,0 +1,203 @@
+:root{
+    --pink: rgb(247,194,170);
+    --green: rgb(186,227,186);
+    --yellow: rgb(239,227,174);
+    --blue: rgb(186,206,247);
+    --grey: rgb(216,216,216);
+    --white: rgb(255,255,255);
+    /* LETTERS COLORS */
+    --yellow-letter: rgb(251,198,65);
+    --yellow-letter-top: rgb(255,239,198);
+    --yellow-letter-middle: rgb(255,215,113);
+    --yellow-letter-bottom: rgb(223,178,57);
+    --green-letter: rgb(85,186,85);
+    --green-letter-top: rgb(202,235,202);
+    --green-letter-middle: rgb(109,198,109);
+    --green-letter-bottom: rgb(77,166,77);
+    --blue-letter: rgb(85,138,255);
+    --blue-letter-top: rgb(202,219,255);
+    --blue-letter-middle: rgb(109,154,255);
+    --blue-letter-bottom: rgb(77,121,227);
+    --pink-letter: rgb(239,101,85);
+    --pink-letter-top: rgb(251,210,202);
+    --pink-letter-middle: rgb(243,125,109);
+    --pink-letter-bottom: rgb(210,89,77);
+}
+body{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: Calibri;
+    font-size: 16px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/* LETTER LETTER LETTER LETTER LETTER LETTER LETTER LETTER*/
+.letter{
+    position: absolute;
+    font-family: Calibri;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+}
+.letter-background{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 2px;
+}
+.letter-background__global{
+    position: absolute;
+    left: 2px;
+    width: 46px;
+}
+.letter-background__top{
+    top: 1px;
+    height: 3px;
+    border-radius: 2px 2px 0px 0px;
+}
+.letter-background__middle{
+    top: 4px;
+    height: 21px;
+}
+.letter-background__bottom{
+    bottom: 1px;
+    height: 3px;
+    border-radius: 0px 0px 2px 2px;
+}
+/* letters--colors */
+.letter-background--yellow{
+    background-color: var(--yellow-letter);
+}
+.letter-background__top--yellow{
+    background-color: var(--yellow-letter-top);
+}
+.letter-background__middle--yellow{
+    background-color: var(--yellow-letter-middle);
+}
+.letter-background__bottom--yellow{
+    background-color: var(--yellow-letter-bottom);
+}
+.letter-background--green{
+    background-color: var(--green-letter);
+}
+.letter-background__top--green{
+    background-color: var(--green-letter-top);
+}
+.letter-background__middle--green{
+    background-color: var(--green-letter-middle);
+}
+.letter-background__bottom--green{
+    background-color: var(--green-letter-bottom);
+}
+.letter-background--blue{
+    background-color: var(--blue-letter);
+}
+.letter-background__top--blue{
+    background-color: var(--blue-letter-top);
+}
+.letter-background__middle--blue{
+    background-color: var(--blue-letter-middle);
+}
+.letter-background__bottom--blue{
+    background-color: var(--blue-letter-bottom);
+}
+.letter-background--pink{
+    background-color: var(--pink-letter);
+}
+.letter-background__top--pink{
+    background-color: var(--pink-letter-top);
+}
+.letter-background__middle--pink{
+    background-color: var(--pink-letter-middle);
+}
+.letter-background__bottom--pink{
+    background-color: var(--pink-letter-bottom);
+}
+/* BOARD BOARD BOARD BOARD BOARD BOARD BOARD BOARD */
+.board{
+    margin: 3vh;
+    background-color: var(--grey);
+    align-items: center;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(15, 50px);
+    grid-template-rows: repeat(15, 50px);
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    border: 1px solid var(--grey);
+}
+.board__field{
+    width: 50px;
+    height: 50px;
+    background-color: var(--white);
+}
+.board__field--color{
+    position: relative;
+    box-shadow: inset 0 0 3px 7px var(--white);
+}
+.board__field--color-pink{
+    background-color: var(--pink);
+}
+.board__field--color-green{
+    background-color: var(--green);
+}
+.board__field--color-yellow{
+    background-color: var(--yellow);
+}
+.board__field--color-blue{
+    background-color: var(--blue);
+}
+/* PLAYER PLAYER PLAYER PLAYER PLAYER PLAYER PLAYER PLAYER */
+.player{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 766px;
+}
+.player__fields{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.player__field{
+    width: 50px;
+    height: 50px;
+    background-color: var(--white);
+    border: 1px solid var(--grey);
+}
+.player__btns{
+    margin: 1vw;
+}
+.player__btn{
+    background-color: var(--grey);
+    border: none;
+    position: relative;
+    font-weight: 800;
+    height: 30px;
+    border-radius: 5px;
+}
+.player__btn--start{
+    background-color: var(--yellow);
+}
+.player__btn--swap-ok{
+    background-color: var(--green);
+}
+.player__btn--swap-cancel{
+    background-color: var(--pink);
+}
+.player__btn--hidden{
+    display: none;
+}
