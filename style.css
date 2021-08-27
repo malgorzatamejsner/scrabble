@@ -6,6 +6,16 @@
     --grey: rgb(216,216,216);
     --white: rgb(255,255,255);
     /* LETTERS COLORS */
+    /*
+    --white-letter: rgb(239,239,239);
+    --white-letter-top: rgb(251,251,251);
+    --white-letter-middle: rgb(243,243,243);
+    --white-letter-bottom: rgb(210,210,210);
+    */
+    --white-letter: rgb(220,220,220);
+    --white-letter-top: rgb(250,250,250);
+    --white-letter-middle: rgb(230,230,230);
+    --white-letter-bottom: rgb(200,200,200);
     --yellow-letter: rgb(251,198,65);
     --yellow-letter-top: rgb(255,239,198);
     --yellow-letter-middle: rgb(255,215,113);
@@ -76,6 +86,18 @@ main{
     border-radius: 0px 0px 2px 2px;
 }
 /* letters--colors */
+.letter-background--white{
+    background-color: var(--white-letter);
+}
+.letter-background__top--white{
+    background-color: var(--white-letter-top);
+}
+.letter-background__middle--white{
+    background-color: var(--white-letter-middle);
+}
+.letter-background__bottom--white{
+    background-color: var(--white-letter-bottom);
+}
 .letter-background--yellow{
     background-color: var(--yellow-letter);
 }
@@ -126,7 +148,7 @@ main{
 }
 /* BOARD BOARD BOARD BOARD BOARD BOARD BOARD BOARD */
 .board{
-    margin: 3vh;
+    margin: 2vh;
     background-color: var(--grey);
     align-items: center;
     justify-items: center;
@@ -144,42 +166,69 @@ main{
 }
 .board__field--color{
     position: relative;
-    box-shadow: inset 0 0 3px 7px var(--white);
 }
-.board__field--color-pink{
+.board__field--color::before{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    left: 7px;
+    top: 7px;
+    content: "";
+    border-radius: 5px;
+}
+.board__field--color-pink::before{
     background-color: var(--pink);
 }
-.board__field--color-green{
+.board__field--color-green::before{
     background-color: var(--green);
 }
-.board__field--color-yellow{
+.board__field--color-yellow::before{
     background-color: var(--yellow);
 }
-.board__field--color-blue{
+.board__field--color-blue::before{
     background-color: var(--blue);
+}
+.board__field--color-grey-3::before,
+.board__field--color-grey-2::before{
+    background-color: var(--grey);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.board__field--color-grey-3::before{
+    content: "x3";
+}
+.board__field--color-grey-2::before{
+    content: "x2";  
 }
 /* PLAYER PLAYER PLAYER PLAYER PLAYER PLAYER PLAYER PLAYER */
 .player{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
     width: 766px;
 }
 .player__fields{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    background-color: var(--grey);
+    display: grid;
+    grid-template-columns: repeat(7, 50px);
+    grid-column-gap: 1px;
+    border: 1px solid var(--grey);
 }
 .player__field{
     width: 50px;
     height: 50px;
     background-color: var(--white);
-    border: 1px solid var(--grey);
 }
 .player__btns{
     margin: 1vw;
+    grid-column: 2/4;
 }
 .player__btn{
     background-color: var(--grey);
@@ -200,4 +249,49 @@ main{
 }
 .player__btn--hidden{
     display: none;
+}
+.player__btn--word-ok{
+    background-color: var(--green);
+}
+.player__info{
+    grid-row: 2;
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.player__message{
+    grid-column: 1/3;
+}
+.player__score{
+    grid-column: 3/4;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-self: end;
+    margin-bottom: 0;
+}
+.player__score--points{
+    color: var(--green-letter);
+    justify-self: end;
+}
+.freezer{
+    position: absolute;
+    z-index: 100;  
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,15%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.freezer__hidden{
+    display: none;
+}
+.freezer__letters-for-blank{
+    display: grid;
+    grid-template-columns: repeat(11, auto);
+    grid-template-rows: repeat(3, auto);
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    background-color: var(--white);
+    padding: 1vh;
 }
